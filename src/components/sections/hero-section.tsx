@@ -1,39 +1,63 @@
+import Image from "next/image";
+
 import { CtaLink } from "@/components/ui/cta-link";
-import { GrainImage } from "@/components/ui/grain-image";
 import { Reveal } from "@/components/ui/reveal";
 
 export function HeroSection() {
   return (
-    <header className="relative flex min-h-screen items-center justify-center overflow-hidden bg-surface pt-24">
-      <GrainImage
-        className="absolute inset-0 z-0"
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVd5-_7DFubhFnk7J2EMk-BAGyInGEnZNJUempoeWgxrAo8kim8_C9ntSCJ0b4GskU4uAGggAxT2DvD3ZolVSIVvuoAz6dgnFPpne4KBuSknyCLAvoC5oSVD-szhPL13KtQia8N-OPMOMQX2ptSoULlE5b1tL4Bxamv3tmkCA7elXEJ_s_b-dGAKQvX5I6_hdKS1LkRqDiteMJ_I23m0Rh3WHDxF-ZBNcv3GaLq1ctIN2y-ALYNRHgBS9MWkO3JB0HBQ"
-        alt="Fotografía cinematográfica en blanco y negro de alto contraste de dos bailarinas elegantes posando con gracia. Visten un glamuroso atuendo de cabaret inspirado en los años 50, con plumas, perlas y tacones vintage. La iluminación es dramática, de flash de estudio, y proyecta sombras profundas sobre un fondo marfil minimalista. La imagen tiene un sutil grano analógico que evoca la época dorada de Hollywood y las editoriales vintage de Vogue."
-        imageClassName="object-cover object-center opacity-80"
-        sizes="100vw"
-        priority
-      >
-        <div className="absolute inset-0 bg-linear-to-b from-surface/20 via-surface/10 to-surface" />
-      </GrainImage>
+    <header className="relative flex min-h-screen items-center justify-center overflow-hidden bg-surface pt-28 pb-32 md:pb-36">
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_75%_60%_at_50%_38%,#fffdf9_0%,#f8f6f2_55%,#ece8e0_100%)]"
+      />
+      <div aria-hidden className="grain-overlay z-0 opacity-[0.9]" />
 
-      <Reveal className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center gap-8 px-margin-mobile text-center md:px-margin-desktop">
-        <h1 className="font-display-lg text-display-md uppercase leading-tight tracking-tighter text-primary md:text-display-lg">
-          LAS COQUETTES
+      <Reveal className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center gap-8 px-margin-mobile text-center md:gap-10 md:px-margin-desktop">
+        <h1 className="w-full">
+          <Image
+            src="/logo-lockup.webp"
+            alt="Las Coquettes · Jazz Girls Club"
+            width={1400}
+            height={896}
+            priority
+            sizes="(min-width: 768px) 560px, 82vw"
+            className="mx-auto h-auto w-[82%] max-w-[560px]"
+          />
         </h1>
-        <p className="max-w-3xl font-headline-lg text-headline-lg-mobile italic text-primary md:text-headline-lg">
-          Una experiencia de danza inspirada en el glamour del jazz y el
-          Hollywood clásico.
+
+        <div aria-hidden className="h-px w-14 bg-accent/45" />
+
+        <p className="max-w-2xl text-balance font-body-lg text-[21px] font-light leading-[1.55] tracking-[-0.005em] text-on-background md:text-[27px]">
+          Un espectáculo de jazz, teatro y glamour.
+          <span className="mt-1.5 block text-on-surface-variant">
+            Elegante, divertido y lleno de encanto.
+          </span>
         </p>
-        <p className="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant">
+
+        <p className="max-w-md font-label-sm text-[11px] uppercase leading-relaxed tracking-[0.13em] text-on-surface-variant sm:max-w-none sm:text-label-sm sm:tracking-[0.22em]">
           Barcelona · Disponibles para hoteles y eventos privados
         </p>
-        <div className="mt-8 flex flex-col gap-6 sm:flex-row">
+
+        <div className="mt-2 flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:gap-5">
           <CtaLink href="#reservas">RESERVA EL ESPECTÁCULO</CtaLink>
           <CtaLink href="#experiencia" variant="secondary">
             DESCUBRE LA EXPERIENCIA
           </CtaLink>
         </div>
       </Reveal>
+
+      <a
+        href="#programa"
+        aria-label="Ir al programa"
+        className="group absolute bottom-10 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
+      >
+        <span className="font-label-sm text-[10px] uppercase tracking-[0.3em] text-on-surface-variant transition-colors duration-300 group-hover:text-accent">
+          Descubrir
+        </span>
+        <span className="h-10 w-px overflow-hidden bg-primary/15">
+          <span className="block h-1/2 w-px animate-[scroll-cue_2.2s_ease-in-out_infinite] bg-accent" />
+        </span>
+      </a>
     </header>
   );
 }

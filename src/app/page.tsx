@@ -6,12 +6,14 @@ import { GallerySection } from "@/components/sections/gallery-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { PrestigeSection } from "@/components/sections/prestige-section";
 import { ShowSection } from "@/components/sections/show-section";
+import { StageSection } from "@/components/sections/stage-section";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <ShowSection />
+      <StageSection />
       <DuoSection />
       <ExperienceSection />
       <PrestigeSection />

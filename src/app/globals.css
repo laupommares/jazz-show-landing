@@ -8,7 +8,7 @@
   --color-surface: #f8f6f2;
   --color-on-surface: #1b1c1a;
   --color-surface-variant: #e4e2de;
-  --color-on-surface-variant: #444748;
+  --color-on-surface-variant: #3d3b37;
   --color-surface-bright: #fbf9f5;
   --color-surface-dim: #dbdad6;
   --color-surface-container-lowest: #ffffff;
@@ -55,6 +55,17 @@
 
   --color-outline: #747878;
   --color-outline-variant: #c4c7c7;
+
+  --color-surface-dark: #141513;
+  --color-surface-dark-soft: #1e201d;
+  --color-on-surface-dark: #f2efe8;
+  --color-on-surface-dark-variant: #a8a6a0;
+
+  --color-accent: #770303;
+  --color-accent-strong: #5a0202;
+  --color-accent-muted: #a94a4a;
+  --color-accent-tint: #f2e6e6;
+  --color-on-accent: #fdfbf7;
   --color-gold: #d4af37;
 
   --font-display-lg: var(--font-bodoni-moda), serif;
@@ -137,7 +148,14 @@
   .diamond-divider::before {
     content: "✦";
     font-size: 1.5rem;
-    color: var(--color-gold);
+    color: var(--color-accent);
+  }
+
+  .brand-tagline {
+    font-family: var(--font-label-sm);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-accent);
   }
 
   .reveal {
@@ -149,5 +167,27 @@
   .reveal-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-\[scroll-cue_2\.2s_ease-in-out_infinite\] {
+    animation: none;
   }
 }
